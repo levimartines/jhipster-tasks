@@ -31,6 +31,7 @@
   },
   "defaultProject": "tasks",
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "c8254014-c6f5-4ebc-8ad6-efa4afe3d428"
   }
 }
