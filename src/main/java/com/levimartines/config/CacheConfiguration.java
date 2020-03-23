@@ -1,17 +1,17 @@
 package com.levimartines.config;
 
-import java.time.Duration;
-
-import org.ehcache.config.builders.*;
-import org.ehcache.jsr107.Eh107Configuration;
-
-import org.hibernate.cache.jcache.ConfigSettings;
 import io.github.jhipster.config.JHipsterProperties;
-
+import java.time.Duration;
+import org.ehcache.config.builders.CacheConfigurationBuilder;
+import org.ehcache.config.builders.ExpiryPolicyBuilder;
+import org.ehcache.config.builders.ResourcePoolsBuilder;
+import org.ehcache.jsr107.Eh107Configuration;
+import org.hibernate.cache.jcache.ConfigSettings;
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableCaching
@@ -42,6 +42,18 @@ public class CacheConfiguration {
             createCache(cm, com.levimartines.domain.User.class.getName());
             createCache(cm, com.levimartines.domain.Authority.class.getName());
             createCache(cm, com.levimartines.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.levimartines.domain.Task.class.getName());
+            createCache(cm, com.levimartines.domain.Region.class.getName());
+            createCache(cm, com.levimartines.domain.Country.class.getName());
+            createCache(cm, com.levimartines.domain.Location.class.getName());
+            createCache(cm, com.levimartines.domain.Department.class.getName());
+            createCache(cm, com.levimartines.domain.Department.class.getName() + ".employees");
+            createCache(cm, com.levimartines.domain.Task.class.getName() + ".jobs");
+            createCache(cm, com.levimartines.domain.Employee.class.getName());
+            createCache(cm, com.levimartines.domain.Employee.class.getName() + ".jobs");
+            createCache(cm, com.levimartines.domain.Job.class.getName());
+            createCache(cm, com.levimartines.domain.Job.class.getName() + ".tasks");
+            createCache(cm, com.levimartines.domain.JobHistory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
